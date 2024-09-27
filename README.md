@@ -1,15 +1,27 @@
+<<<<<<< HEAD
 **SLURM Script** 
 I used the following commands to train the model with one A100.  
 srun --gres=gpu:1 --time=00:59:00 --mem=16G -c 32 --exclusive ---pty bash  
 source $STORE/mypython/bin/activate  
+=======
+**SLURM Script**
+I used the following commands to train the model with one A100.
+srun --gres=gpu:1 --time=00:59:00 --mem=16G -c 32 --exclusive --pty bash 
+source $STORE/mypython/bin/activate
+>>>>>>> f8c6837106716b1174eeb5e24f8f0685bb11fe98
 jupyter lab --ip `hostname -i`
 
 **Create a dataset**  
 
 The dataset I used is the dev-v2 dataset. It is a json file. I didn't know how to read this file so I used a code from kaggle:  
 https://www.kaggle.com/code/sanjay11100/squad-stanford-q-a-json-to-pandas-dataframe  
+<<<<<<< HEAD
 This dataset can't  directly be used for training. It must be tokenized first. 
 I didn't know how to do it, so I have used a code from CHATGPT that I have modified.  
+=======
+This dataset can't be directly used for training. It must be tokenized first. 
+I didn’t know how to do that, so I used code from ChatGPT, which I then modified.
+>>>>>>> f8c6837106716b1174eeb5e24f8f0685bb11fe98
 To simplify the dataset, only the first 1600 rows and the first answer of each question have been kept.  
   
 The model chosen for this task is the pre-trained bert base cased.  
@@ -24,6 +36,7 @@ The f1_score wasn't imported from scikit_learn because to use it, the data must 
 
 **Training**
 I trained for 10 epochs.  
+<<<<<<< HEAD
 The results at the end of the training are:  
 Training Loss: 0.1853  
 Validation Loss: 3.879
