@@ -1,9 +1,10 @@
-**SLURM Script** 
+**SLURM Script**  
+
 I used the following commands to train the model with one A100.  
 srun --gres=gpu:1 --time=00:59:00 --mem=16G -c 32 --exclusive ---pty bash  
 source $STORE/mypython/bin/activate
 
-**Create a dataset**  
+**Create a dataset**
 
 The dataset I used is the dev-v2 dataset. It is a json file. I didn't know how to read this file, so I used a code from kaggle:  
 https://www.kaggle.com/code/sanjay11100/squad-stanford-q-a-json-to-pandas-dataframe
@@ -17,12 +18,14 @@ The optimizer is AdamW which is similar the usual Adam optimizer but with weight
 The learning rate at the beginning of the training is 5e-5 which is the usual learning rate for transformers.  
 
 **Loss and Metrics**  
-The default loss for this model is the binary crossentropy loss.    
+
+The default loss for this model is the binary cross entropy loss.    
 To have something else from the loss to display on tensorboard I used the f1_score and an exact_match score.  
 The f1_score wasn't imported from scikit_learn because to use it, the data must be in numpy array and not tensors. However, to get numpy arrays it seems that it is necessary to transfer my results from the GPU to the CPU.
 
 
 **Training**
+
 I trained for 10 epochs.
 The results at the end of the training are:  
 Training Loss: 0.1853  
