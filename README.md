@@ -1,27 +1,15 @@
-<<<<<<< HEAD
 **SLURM Script** 
 I used the following commands to train the model with one A100.  
 srun --gres=gpu:1 --time=00:59:00 --mem=16G -c 32 --exclusive ---pty bash  
-source $STORE/mypython/bin/activate  
-=======
-**SLURM Script**
-I used the following commands to train the model with one A100.
-srun --gres=gpu:1 --time=00:59:00 --mem=16G -c 32 --exclusive --pty bash 
 source $STORE/mypython/bin/activate
->>>>>>> f8c6837106716b1174eeb5e24f8f0685bb11fe98
-jupyter lab --ip `hostname -i`
 
 **Create a dataset**  
 
-The dataset I used is the dev-v2 dataset. It is a json file. I didn't know how to read this file so I used a code from kaggle:  
-https://www.kaggle.com/code/sanjay11100/squad-stanford-q-a-json-to-pandas-dataframe  
-<<<<<<< HEAD
-This dataset can't  directly be used for training. It must be tokenized first. 
-I didn't know how to do it, so I have used a code from CHATGPT that I have modified.  
-=======
+The dataset I used is the dev-v2 dataset. It is a json file. I didn't know how to read this file, so I used a code from kaggle:  
+https://www.kaggle.com/code/sanjay11100/squad-stanford-q-a-json-to-pandas-dataframe
+
 This dataset can't be directly used for training. It must be tokenized first. 
 I didn’t know how to do that, so I used code from ChatGPT, which I then modified.
->>>>>>> f8c6837106716b1174eeb5e24f8f0685bb11fe98
 To simplify the dataset, only the first 1600 rows and the first answer of each question have been kept.  
   
 The model chosen for this task is the pre-trained bert base cased.  
@@ -30,13 +18,12 @@ The learning rate at the beginning of the training is 5e-5 which is the usual le
 
 **Loss and Metrics**  
 The default loss for this model is the binary crossentropy loss.    
-To have something else from the loss to display on tensorboard I used the f1_score and a exact_match score.  
+To have something else from the loss to display on tensorboard I used the f1_score and an exact_match score.  
 The f1_score wasn't imported from scikit_learn because to use it, the data must be in numpy array and not tensors. However, to get numpy arrays it seems that it is necessary to transfer my results from the GPU to the CPU.
 
 
 **Training**
-I trained for 10 epochs.  
-<<<<<<< HEAD
+I trained for 10 epochs.
 The results at the end of the training are:  
 Training Loss: 0.1853  
 Validation Loss: 3.879
