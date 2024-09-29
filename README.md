@@ -67,14 +67,14 @@ for epoch in range(epochs):
 ```
 
 **Results**
-I have trained for 10 epochs.
-The results at the end of the training are:  
-Training Loss: 0.1853  
-Validation Loss: 3.879
-Training F1 Score: 0.9028
-Validation F1 Score: 0.415
-The time for the training is: 8:15 with an average time of 50 seconds for each epoch, for the training steps, according to tensorboard.  
-After the 2nd epoch, the model has overfitted, this is certainly due to the low amount of data.
+I have trained for 10 epochs.  
+The results at the end of the training are:    
+Training Loss: 0.1853    
+Validation Loss: 3.879  
+Training F1 Score: 0.9028  
+Validation F1 Score: 0.415  
+The time for the training is: 8:15 with an average time of 50 seconds for each epoch, for the training steps, according to tensorboard.    
+After the 2nd epoch, the model has overfitted, this is certainly due to the low amount of data.  
 
 ![png](img/Loss_Train.png)
 ![png](img/Loss_Validation.png)
